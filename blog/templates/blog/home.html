@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+    {% block content %}
+        {% for post in posts %} <!--For Loop-->
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}"> <!--https://www.youtube.com/watch?v=CQ90L5jfldw&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=9-->
+            <div class="media-body">
+                  <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ post.author }}</a>  
+                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                  </div>
+                  <h2><a class="article-title" href="{% url 'post-detail' post.id  %}">{{ post.title }}</a></h2>
+                  <p class="article-content">{{ post.content }}</p>
+            </div>
+        </article>  
+    {% endfor %}
+{% endblock content %}

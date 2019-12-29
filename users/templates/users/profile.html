@@ -1,0 +1,66 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+            <br>
+          <!-- <h3>Your available Dates</h3>
+          <input type="text" class="form-control date" id="Txt_Date" value="Click to Select Date"/> -->
+          <!-- this does not need to be shown for admin, I don't think -->
+            <br>
+
+            <br>
+          <h5>A list of all your active installation jobs are below:</h5>    
+
+          </div>
+        </div>
+
+    </div>
+
+
+    <!--Job Info Displaying on Profile Page-->
+    {% for job in jobs %}
+        <article class="media content-section">
+            <div class="media-body">
+                  <div class="article-metadata">
+                    <a class="mr-2" href="#">Installer: {{ job.job_installer }}</a>
+                    <small class="text-muted">{{ job.job_date|date:"F d, Y"  }}</small>
+                  </div>
+                  <h2><a class="article-title" href="#">{{ job.job_desc }}</a></h2>
+                  <p class="article-content">Regarding customer: {{ job.job_customer }}</p>
+            </div>
+        </article>  
+    {% endfor %}
+
+    
+
+
+
+    
+
+
+
+    
+
+
+   <!--https://cdnjs.com/libraries/bootstrap-datetimepicker--> <!--Bootstrap datetimepicker-->     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
+    <script type="text/javascript">
+        $("#Txt_Date").datepicker({
+            format: 'd-M-yyyy',
+            inline: true,
+            lang: 'en',
+            step: 5,
+            multidate: 10,
+            
+        });
+    </script>
+
+{% endblock content %}
