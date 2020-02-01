@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 from django import forms
+from multiselectfield import MultiSelectField
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -32,7 +33,7 @@ class Job(models.Model):
     job_date = models.DateTimeField('date of job')
     job_booked = models.BooleanField()
 
-    def __str__(self):
+    def __str__(self): 
         return self.job_desc
 
 
@@ -71,4 +72,16 @@ class InstallerDetail(models.Model):
     def __str__(self):
         return self.installer_availability
 
-
+#NEW CODE JANUARY- TRYING TO WRITE A MULTI-SELECT FOR AVAILABLE DAYS
+#https://www.youtube.com/watch?v=5jWJBpS0tkg
+class AvailableDay(models.Model):
+    AVAILABLEDAY_CHOICES = (
+        ('Monday', 'Monday'),
+        ('Tuesday', 'Tuesday'),
+        ('Wednesday', 'Wednesday'),
+        ('Thursday', 'Thursday'),
+        ('Friday', 'Friday'),
+        ('Saturday', 'Saturday'),
+        ('Sunday', 'Sunday'),
+    )
+    title = MultiSelectField(choices = AVAILABLEDAY_CHOICES)

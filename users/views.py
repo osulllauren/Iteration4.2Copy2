@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Job 
+from django.shortcuts import render 
 
 def register(request):
     if request.method == "POST":
@@ -45,4 +47,18 @@ def profile(request):
     
     return render(request, 'users/profile.html', context)
 
-    
+
+
+#https://www.youtube.com/watch?v=TblSa29DX6I
+def account(request):
+    #return HttpResponse('Your Account')
+    return render(request, 'account.html')    
+
+def jobs(request):
+    return HttpResponse('Jobs')  
+
+def installations(request):
+    return HttpResponse('Installations')
+
+def quotes(request):
+    return HttpResponse('Quotes')

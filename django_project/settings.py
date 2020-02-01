@@ -41,6 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions', #session framework 
     'django.contrib.messages', #messaging framework
     'django.contrib.staticfiles', #framework for managing static files
+    'multiselectfield',  #https://www.youtube.com/watch?v=5jWJBpS0tkg
+
+
+    #own apps
+    'installers',
+
 ]
 
 MIDDLEWARE = [
@@ -58,7 +64,10 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'users', 'templates', 'users'),    #https://stackoverflow.com/questions/1926049/django-templatedoesnotexist (Part 3)
+
+        ],   
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,3 +148,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+#EMAIL_HOST_USER = 'swyftscheduler@gmail.com'
+#EMAIL_HOST_PASSWORD = 'fabodggtwjgbslnz'

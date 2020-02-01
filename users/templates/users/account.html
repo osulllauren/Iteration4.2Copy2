@@ -1,0 +1,106 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <!--<h3>Your Account </h3> -->
+
+    <!--Took this from profile.html-->
+    <div class="content-section">
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+            <br>
+            <h6>Welcome {{ user.username }}, please fill in the following details. </h6>
+          </div>
+        </div>
+    </div>
+
+
+    <!--https://www.youtube.com/watch?v=poEjvRJ6SAY-->
+    <!--Code for multiselect checkboxes-->
+    <!--Multi-Select is working here-->
+    <!--Coloured Boarder / W3Schools-->
+    <!--https://www.w3schools.com/html/tryit.asp?filename=tryhtml_color_border-->
+        <h6 style="border:2.5px solid DodgerBlue;">Select the day(s) you are available to work:</h6>
+        <p></p>
+        <input type="checkbox" name="monday" /> Monday
+        <br />
+        <input type="checkbox" name="tuesday" /> Tuesday
+        <br />
+        <input type="checkbox" name="wednesday" /> Wednesday
+        <br />
+        <input type="checkbox" name="thursday" /> Thursday
+        <br />
+        <input type="checkbox" name="friday" /> Friday
+        <br />
+        <input type="checkbox" name="saturday" /> Saturday
+        <br />
+        <input type="checkbox" name="sunday" /> Sunday
+        <p></p>
+        <input style="background-color:rgba(60, 141, 179);" type="submit" value="Submit " />
+        <!--Code to colour the submit button-->
+        <!--https://www.w3schools.com/html/tryit.asp?filename=tryhtml_color_values-->
+
+        <br />
+        <br />
+
+        <!--Using the same format as above-->
+        <!--This is only temporary. I hope to embed a google map api and use their polygon creation feature for the 'working radius'-->
+        <h6 style="border:2.5px solid DodgerBlue;">Select the area(s) you are available to service:</h6>
+        <p></p>
+        <input type="checkbox" name="cork" /> Cork
+        <br />
+        <input type="checkbox" name="kerry" /> Kerry
+        <br />
+        <input type="checkbox" name="dublin" /> Dublin
+        <br />
+        <input type="checkbox" name="limerick" /> Limerick
+        <br />
+        <input type="checkbox" name="meath" /> Meath
+        <br />
+        <input type="checkbox" name="wexford" /> Wexford 
+        <br />
+        <input type="checkbox" name="Waterford" /> Waterford
+        <p></p>
+        <input style="background-color:rgba(60, 141, 179);" type="submit" value="Submit " />
+        <!--Code to colour the submit button-->
+        <!--https://www.w3schools.com/html/tryit.asp?filename=tryhtml_color_values-->
+        
+
+        <br />
+        <br />
+        <!--https://www.google.com/maps/place/Ireland/@53.3623848,-10.4601454,7z/data=!3m1!4b1!4m5!3m4!1s0x4859bae45c4027fb:0xcf7c1234cedbf408!8m2!3d53.41291!4d-8.24389-->
+        <!--Got this on Google Maps - share - embed map-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2438073.628166198!2d-10.34165032249171!3d53.36238480776031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485e619e5d73698f%3A0xca9b39444d6ac68d!2sIreland!5e0!3m2!1sen!2sie!4v1578859427589!5m2!1sen!2sie" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+        <br />
+        <br />
+
+        <!--Using the same format as above-->
+        <h6 style="border:2.5px solid DodgerBlue;">Select the skillset which best applies to you:</h6>
+        <p></p>
+        <input type="checkbox" name="boilerinstallationsonly" /> Boiler Installations Only
+        <br />
+        <input type="checkbox" name="heatingcontrolinstallationsonly" /> Heating Control Installations Only
+        <br />
+        <input type="checkbox" name="boiler&heatingcontrolinstallations" /> Boiler & Heating Control Installations
+        <p></p>
+        <input style="background-color:rgba(60, 141, 179);" type="submit" value="Submit " />
+        <!--Code to colour the submit button-->
+        <!--https://www.w3schools.com/html/tryit.asp?filename=tryhtml_color_values-->
+
+        <br />
+        <br />
+
+        
+        <div class="row">
+            <div class="col-8">  
+            </div>
+            <div class="col-4">
+                <a class="btn btn-primary" href="http://localhost:8000/" role="button">Confirm Details</a> <!--For the moment this page goes back to the homepage-->
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

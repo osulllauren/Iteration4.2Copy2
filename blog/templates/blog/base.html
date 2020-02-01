@@ -23,6 +23,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
+                <!-- Navbar Left Side -->
                 <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Swyft Scheduler</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,16 +32,24 @@
                     <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
                     <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                    {% if request.user.is_superuser %}   <!-- https://stackoverflow.com/questions/10065676/django-hide-button-in-template-if-user-is-not-super-user/10065699 -->
+                        <a class="nav-item nav-link" href="{% url 'admin' %}">Admin</a>
+                    {% endif %}
+                        
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                      {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>   
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                     {% if request.user.is_superuser %}    <!--IF STATEMENT: https://stackoverflow.com/questions/10065676/django-hide-button-in-template-if-user-is-not-super-user/10065699-->
+                        <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>  <!--this should only show for Admins--> 
+                    {% endif %}
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a> <!--this page should display the list of jobs for Installers-->
+                        <a class="nav-item nav-link" href="{% url 'account' %}">Account</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                      {% else %}   
                         <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                         <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                        
                      {% endif %}    
                     </div>
                 </div>
@@ -60,7 +69,7 @@
                 {% endif %}
                 {% block content %}{% endblock %}
             </div>
-            <div class="col-md-4">
+      <!--      <div class="col-md-4">
             <div class="content-section">
                 <h3>Our Sidebar</h3>
                 <p class='text-muted'>You can put any information here you'd like.
@@ -72,7 +81,7 @@
                 </ul>
               </p>
            </div>
-        </div>
+        </div> -->
       </div>
     </main>    
 
