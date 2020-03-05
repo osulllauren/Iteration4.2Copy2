@@ -2,6 +2,10 @@
 {% block content %}
 
 <form action='.' method='POST'>{% csrf_token %}
+    <h3>Please fill in the below details which regard; working availability, serviceable areas and skillset:</h3>
+    <!-- <br>
+    <h5>Please select the days you are available to work: </h5>
+    <h6 style="border:2.5px solid DodgerBlue;">Select the day(s) you are available to work:</h6> -->
     {{ form.as_p }}  <!--this will render it out as a paragraph text-->
     <input type='submit' value='Save' /> 
 </form>

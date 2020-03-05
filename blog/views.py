@@ -4,7 +4,7 @@ from django.views.generic import (
     ListView, 
     DetailView, 
     CreateView,
-    UpdateView, 
+    UpdateView,
     DeleteView
 )  
 from .models import Post 
@@ -31,7 +31,9 @@ class PostDetailView(DetailView):
 #LoginRequiredMixin = if you try to access the '/post/new' url & the correct user is not logged in - it will show the LoginPage
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday',
+                'cork', 'kerry', 'dublin', 'limerick', 'meath', 'waterford', 
+                'boiler_installations', 'heating_control_installations', 'boiler_and_heating_control_installations']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -40,7 +42,9 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday',
+                'cork', 'kerry', 'dublin', 'limerick', 'meath', 'waterford', 
+                'boiler_installations', 'heating_control_installations', 'boiler_and_heating_control_installations']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -15,6 +15,28 @@
                 </div>
                 <h2 class="article-title">{{ object.title }}</h2>
                 <p class="article-content">{{ object.content }}</p>
+                <h3>Working Availability:</h3>
+                <!-- {% if object.monday %}
+                     <strong>{{ object.monday }}</strong>
+                {% endif %} -->
+                <h5 class="article-monday">{{ object.monday }}</h4>
+                <h5 class="article-tuesday">{{ object.tuesday }}</h4>
+                <h5 class="article-wednesday">{{ object.wednesday }}</h4>
+                <h5 class="article-thursday">{{ object.thursday }}</h4>
+                <h5 class="article-friday">{{ object.friday }}</h4>
+                <h5 class="article-saturday">{{ object.saturday }}</h4>
+                <h5 class="article-sunday">{{ object.sunday }}</h4>
+                <h3>Serviceable Area:</h3>
+                <h5 class="article-cork">{{ object.cork }}</h4>
+                <h5 class="article-kerry">{{ object.kerry }}</h4>
+                <h5 class="article-dublin">{{ object.dublin }}</h4> 
+                <h5 class="article-limerick">{{ object.limerick }}</h4> 
+                <h5 class="article-meath">{{ object.meath }}</h4> 
+                <h5 class="article-waterford">{{ object.waterford }}</h4> 
+                <h3>Serviceable Area:</h3>
+                <h5 class="article-boiler_installations">{{ object.boiler_installations }}</h4> 
+                <h5 class="article-heating_control_installations">{{ object.heating_control_installations }}</h4> 
+                <h5 class="article-boiler_and_heating_control_installations">{{ object.boiler_and_heating_control_installations }}</h4>     
         </div>
     </article>  
 {% endblock content %}

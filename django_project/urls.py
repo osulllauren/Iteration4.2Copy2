@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
 from installers.views import installer_create_view
+from customers.views import customer_create_view
 
 
 urlpatterns = [
@@ -56,6 +57,7 @@ urlpatterns = [
 
     #path('installers/', installer_detail_view),
     path('create/', installer_create_view),
+    path('customers/', customer_create_view),
 ]
 
 
